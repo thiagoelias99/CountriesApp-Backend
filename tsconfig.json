@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "target": "ES2022",
+      "rootDir": "./src",
+      "outDir": "./build",
+      "noEmitOnError": true,
+      "noImplicitAny": true,
+      "removeComments": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "esModuleInterop": true,
+      "module": "CommonJS",
+      "allowJs": false,
+      "checkJs": false
+  }
+}
