@@ -1,6 +1,6 @@
 import { Firestore, collection, doc, getDoc } from "firebase/firestore";
 import { IUser } from "../../Entities/User";
-import { IUserRepository } from "../../repository/UserRepository";
+import { IUserRepository } from "../../database/repository/UserRepository";
 
 export class UserRepository implements IUserRepository {
     constructor(

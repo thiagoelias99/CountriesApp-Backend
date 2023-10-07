@@ -1,4 +1,4 @@
-import { IUser } from "../Entities/User"
+import { IUser } from "../../Entities/User"
 
 export interface IUserRepository {
 

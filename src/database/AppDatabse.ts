@@ -1,4 +1,4 @@
-import { IUserRepository } from "../repository/UserRepository" 
+import { IUserRepository } from "./repository/UserRepository" 
 
 export interface IAppDatabase {
     users: IUserRepository
