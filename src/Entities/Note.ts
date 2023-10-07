@@ -1,8 +1,8 @@
-import { Country } from "./Country"
-import { User } from "./User"
+import { ICountry } from "./Country"
+import { IUser } from "./User"
 
-export interface Note {
+export interface INote {
     id: string
-    user: User
-    country: Country
+    user: IUser
+    countryCCA3?: string
 }

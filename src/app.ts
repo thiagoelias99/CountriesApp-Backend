@@ -1,7 +1,13 @@
 import { FireStore } from "./infra/firestore"
+import { server } from './server'
 
-const docId = "3912D440-BFB9-47DC-8774-022E952B8BA9"
+function startApp() {
+    server
+}
 
-const fireStore = FireStore.getInstance()
-
-fireStore.getUser(docId)
+try {
+    startApp()
+} catch (error) {
+    console.log('Server execution failed :(')
+    console.log(error)
+}

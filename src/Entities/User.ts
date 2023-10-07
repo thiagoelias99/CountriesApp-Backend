@@ -1,10 +1,10 @@
-import { Country } from "./Country"
-import { Note } from "./Note"
+import { ICountry } from "./Country"
+import { INote } from "./Note"
 
-export interface User {
+export interface IUser {
     id: string
     name: string
     email: string
-    countries?: Country[]
-    notes?: Note[]
+    countries?: ICountry[]
+    notes?: INote[]
 }
