@@ -1,0 +1,52 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CountriesApp-Backend",
+    "dateExported": "2023-10-09T01:28:22.614Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "37edc381-4fcc-4e7b-b382-5c47384f04e2",
+            "name": "Users",
+            "containerId": "",
+            "created": "2023-10-07T18:24:51.584Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a5b3c1fc-edb0-4e76-b8da-8b89e22c39e0",
+            "name": "Countries",
+            "containerId": "",
+            "created": "2023-10-07T19:34:36.780Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "be6b8bf6-f9ee-4b28-aed4-a06250bdd121",
+            "colId": "ef725223-54a1-4791-97d1-e9491dfa2d03",
+            "containerId": "37edc381-4fcc-4e7b-b382-5c47384f04e2",
+            "name": "get-by-id",
+            "url": "http://localhost:3333/users/EC70CE2C-1297-48B8-B587-99D2DA381D4F",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-07T18:25:02.529Z",
+            "modified": "2023-10-07T18:56:14.392Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0622688c-0056-4fe8-9383-6b86e65ad30c",
+            "colId": "ef725223-54a1-4791-97d1-e9491dfa2d03",
+            "containerId": "a5b3c1fc-edb0-4e76-b8da-8b89e22c39e0",
+            "name": "search-by-name",
+            "url": "http://localhost:3333/countries/br",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-07T19:34:48.466Z",
+            "modified": "2023-10-07T19:35:04.623Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
