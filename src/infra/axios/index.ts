@@ -43,40 +43,52 @@ export class AxiosCountryProvider implements ICountryProvider {
 
         const countriesIBGEApi = (await axios.get<IIBGECountryModel[]>(urlIBGECountries, allowLegacyRenegotiationforNodeJsOptions)).data[0]
 
+        console.log(countriesRestApi)
+        console.log(countriesIBGEApi)
+
+        console.log(countriesRestApi.currencies)
+
+        const currencies = Object.keys(countriesRestApi.currencies);
+        const languagesValues = Object.values(countriesRestApi.languages);
+        const nativeName = Object.values(countriesRestApi.name.nativeName)[0];
+        const capitals = Object.values(countriesRestApi.capital);
+
         const country: ICountry = {
-            area: Number(countriesIBGEApi.area.total.replaceAll(",", ".")),
-            areaUnit: countriesIBGEApi.area.unidade.símbolo,
-            capitalPt: countriesIBGEApi.governo.capital.nome,
-            capitalUs: "Procurarrr",
+            area: countriesRestApi.area ?? 0,
+            areaUnit: countriesIBGEApi?.area.unidade.símbolo ?? "",
+            capitalsPt: [countriesIBGEApi?.governo.capital.nome ?? ""],
+            capitalsUs: capitals,
+            capitalsEs: ["Procurarrr"],
             cca2: countriesRestApi.cca2,
             cca3: countriesRestApi.cca3,
             coatOfArmsPng: countriesRestApi.coatOfArms.png,
             coatOfArmsSvg: countriesRestApi.coatOfArms.svg,
-            currencyNamePt: countriesIBGEApi['unidades-monetarias'][0].nome,
-            currencyNameUs: "Procurarr",
-            currencySymbol: "Procurarrr",
+            currencyNamePt: countriesIBGEApi?.['unidades-monetarias'][0].nome ?? "",
+            currencyNameUs: countriesRestApi.currencies[currencies[0]].name,
+            currencyNameEs: "Procurar",
+            currencySymbol: countriesRestApi.currencies[currencies[0]].symbol,
             flagAlt: countriesRestApi.flags.alt,
             flagPng: countriesRestApi.flags.png,
             flagSvg: countriesRestApi.flags.svg,
-            historyPt: countriesIBGEApi.historico,
-            languages: ["Procurarr"],
-            latitude: 1000,
-            longitude: 10000,
+            historyPt: countriesIBGEApi?.historico ?? "",
+            historyUs: "Procurar",
+            historyEs: "Procurar",
+            languages: languagesValues,
+            latitude: countriesRestApi.capitalInfo.latlng[0],
+            longitude: countriesRestApi.capitalInfo.latlng[1],
             nameCompleteES: countriesRestApi.translations.spa.official,
             nameCompletePt: countriesRestApi.translations.por.official,
             nameCompleteUs: countriesRestApi.name.official,
-            nameES: countriesRestApi.translations.spa.common,
+            nameEs: countriesRestApi.translations.spa.common,
             namePt: countriesRestApi.translations.por.common,
             nameUs: countriesRestApi.name.common,
-            nameLocal: "Procurarrr",
+            nameLocal: nativeName.common,
             population: countriesRestApi.population,
-            regionPt: countriesIBGEApi.localizacao['regiao-intermediaria'].nome
+            regionPt: countriesIBGEApi?.localizacao['regiao-intermediaria']?.nome ?? countriesIBGEApi?.localizacao['sub-regiao']?.nome ?? "",
+            regionUs: countriesRestApi.continents[0],
+            lastUpdate: new Date()
         }
 
-        // console.log(countriesRestApi)
-        // console.log(countriesIBGEApi)
-        console.log(country)
-
-        throw new Error('Not implemented')
+        return country
     }
 }

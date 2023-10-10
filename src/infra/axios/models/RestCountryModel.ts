@@ -8,7 +8,7 @@ export interface IRestCountryModel {
     independent:  boolean;
     status:       string;
     unMember:     boolean;
-    currencies:   Currencies;
+    currencies:   { [key: string]: Currencies };
     idd:          Idd;
     capital:      string[];
     altSpellings: string[];
@@ -51,11 +51,7 @@ interface CoatOfArms {
 }
 
 interface Currencies {
-    EUR: Eur;
-}
-
-interface Eur {
-    name:   string;
+    name: string;
     symbol: string;
 }
 

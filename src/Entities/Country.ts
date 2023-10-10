@@ -3,22 +3,26 @@ export interface ICountry {
     cca3: string
     namePt: string
     nameUs: string
-    nameES: string
+    nameEs: string
     nameCompletePt: string
     nameCompleteUs: string
     nameCompleteES: string
     nameLocal: string
-    capitalPt: string
-    capitalUs: string
+    capitalsPt: string[]
+    capitalsUs: string[]
+    capitalsEs: string[]
     currencySymbol: string
     currencyNamePt: string
     currencyNameUs: string
+    currencyNameEs: string
     flagPng: string
     flagSvg: string
     flagAlt: string
     coatOfArmsPng: string
     coatOfArmsSvg: string
     historyPt: string
+    historyUs: string
+    historyEs: string
     languages: string[]
     area: number
     areaUnit: string
@@ -26,6 +30,8 @@ export interface ICountry {
     longitude: number
     population: number
     regionPt: string
+    regionUs: string
+    lastUpdate: Date
 }
 
 export interface ICountryList {
