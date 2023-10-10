@@ -9,4 +9,8 @@ export class CountryServices {
     searchByName(name: string): Promise<ICountry[]> {
         return this.countryProvider.searchByName(name)
     }
+
+    getByCCA2(cca2: string): Promise<ICountry> {
+        return this.countryProvider.getByCCA2(cca2)
+    }
 }
