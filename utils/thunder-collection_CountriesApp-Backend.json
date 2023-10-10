@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "CountriesApp-Backend",
-    "dateExported": "2023-10-09T01:28:22.614Z",
+    "dateExported": "2023-10-10T01:35:20.402Z",
     "version": "1.1",
     "folders": [
         {
@@ -39,11 +39,25 @@
             "colId": "ef725223-54a1-4791-97d1-e9491dfa2d03",
             "containerId": "a5b3c1fc-edb0-4e76-b8da-8b89e22c39e0",
             "name": "search-by-name",
-            "url": "http://localhost:3333/countries/br",
+            "url": "http://localhost:3333/countries/brasil",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-10-07T19:34:48.466Z",
-            "modified": "2023-10-07T19:35:04.623Z",
+            "modified": "2023-10-10T00:23:04.960Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8650bdd7-df0b-4508-9681-b809995a1c8d",
+            "colId": "ef725223-54a1-4791-97d1-e9491dfa2d03",
+            "containerId": "a5b3c1fc-edb0-4e76-b8da-8b89e22c39e0",
+            "name": "get-by-cca2",
+            "url": "http://localhost:3333/countries/cca2/br",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-10T00:22:22.857Z",
+            "modified": "2023-10-10T00:22:46.706Z",
             "headers": [],
             "params": [],
             "tests": []
