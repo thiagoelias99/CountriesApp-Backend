@@ -1,8 +1,7 @@
-import { IUser } from "../../Entities/User";
 import { IAppDatabase } from "../../database/AppDatabse";
 import { IUserRepository } from "../../database/repository/UserRepository";
 import { Firebase } from "../firebase";
-import { getFirestore, getDoc, doc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { UserRepository } from "./UserRepository";
 
 export class FireStore implements IAppDatabase {
@@ -18,6 +17,4 @@ export class FireStore implements IAppDatabase {
         }
         return FireStore.instance;
     }
-
-    
 }

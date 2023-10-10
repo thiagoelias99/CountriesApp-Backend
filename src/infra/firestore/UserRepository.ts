@@ -21,7 +21,6 @@ export class UserRepository implements IUserRepository {
 
         if (docSnap.exists()) {
             const user = docSnap.data() as IUser
-            // const userCountries
             return new Promise((resolve, reject) => {
                 resolve({
                     id: docSnap.id,
