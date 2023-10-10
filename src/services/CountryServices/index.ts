@@ -1,4 +1,4 @@
-import { ICountry } from "../../Entities/Country";
+import { ICountry, ICountryList } from "../../Entities/Country";
 import { ICountryProvider } from "../../providers/Country-Provider";
 
 export class CountryServices {
@@ -6,7 +6,7 @@ export class CountryServices {
         private countryProvider: ICountryProvider
     ) { }
 
-    searchByName(name: string): Promise<ICountry[]> {
+    searchByName(name: string): Promise<ICountryList[]> {
         return this.countryProvider.searchByName(name)
     }
 
