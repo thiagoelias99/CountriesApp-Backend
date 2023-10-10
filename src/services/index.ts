@@ -5,17 +5,13 @@ import { UserServices } from "./UserServices"
 import { CountryServices } from "./CountryServices"
 import { ICountryProvider } from "../providers/Country-Provider"
 import { ICountry } from "../Entities/Country"
+import { AxiosCountryProvider } from "../infra/axios"
 
 //Support
-class MockCountryProvider implements ICountryProvider {
-    searchByName(name: string): Promise<ICountry[]> {
-        throw new Error("Method not implemented.");
-    }    
-}
 
 //Create dependencies
 const database: IAppDatabase = FireStore.getInstance()
-const countryProvider: ICountryProvider = new MockCountryProvider()
+const countryProvider: ICountryProvider = new AxiosCountryProvider()
 
 //Inject dependencies
 const userServices = new UserServices(database.users)

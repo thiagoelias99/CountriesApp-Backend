@@ -29,9 +29,9 @@ export class UserRepository implements IUserRepository {
                     name: user.name,
                     countries: user.countries?.map(country => {
                         return {
-                            cca3: country.cca3,
-                            name: country.name,
-                            completeName: country.completeName
+                            cca2: country.cca2,
+                            name: country.namePt,
+                            completeName: country.nameCompletePt
                         }
                     }) || [],
                     notes: user.notes || []                                        

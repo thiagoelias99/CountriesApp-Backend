@@ -10,7 +10,7 @@ const path = '/countries'
     // .post(UserController.post)
     // .get(UserController.get)
 
-router.route(`${path}/:id`)
+router.route(`${path}/:name`)
     // .all(idValidator)
     .get(CountriesController.searchByName)
     // .put(UserController.put)
