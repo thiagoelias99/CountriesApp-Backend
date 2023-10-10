@@ -43,10 +43,9 @@ export class AxiosCountryProvider implements ICountryProvider {
 
         const countriesIBGEApi = (await axios.get<IIBGECountryModel[]>(urlIBGECountries, allowLegacyRenegotiationforNodeJsOptions)).data[0]
 
-        console.log(countriesRestApi)
-        console.log(countriesIBGEApi)
+        const countriesIBGEApiEN = (await axios.get<IIBGECountryModel[]>(urlIBGECountries + "?lang=EN", allowLegacyRenegotiationforNodeJsOptions)).data[0]
 
-        console.log(countriesRestApi.currencies)
+        const countriesIBGEApiES = (await axios.get<IIBGECountryModel[]>(urlIBGECountries + "?lang=ES", allowLegacyRenegotiationforNodeJsOptions)).data[0]
 
         const currencies = Object.keys(countriesRestApi.currencies);
         const languagesValues = Object.values(countriesRestApi.languages);
@@ -58,21 +57,21 @@ export class AxiosCountryProvider implements ICountryProvider {
             areaUnit: countriesIBGEApi?.area.unidade.símbolo ?? "",
             capitalsPt: [countriesIBGEApi?.governo.capital.nome ?? ""],
             capitalsUs: capitals,
-            capitalsEs: ["Procurarrr"],
+            capitalsEs: [countriesIBGEApiES?.governo.capital.nome ?? ""],
             cca2: countriesRestApi.cca2,
             cca3: countriesRestApi.cca3,
             coatOfArmsPng: countriesRestApi.coatOfArms.png,
             coatOfArmsSvg: countriesRestApi.coatOfArms.svg,
             currencyNamePt: countriesIBGEApi?.['unidades-monetarias'][0].nome ?? "",
             currencyNameUs: countriesRestApi.currencies[currencies[0]].name,
-            currencyNameEs: "Procurar",
+            currencyNameEs: countriesIBGEApiES?.['unidades-monetarias'][0].nome ?? "",
             currencySymbol: countriesRestApi.currencies[currencies[0]].symbol,
             flagAlt: countriesRestApi.flags.alt,
             flagPng: countriesRestApi.flags.png,
             flagSvg: countriesRestApi.flags.svg,
             historyPt: countriesIBGEApi?.historico ?? "",
-            historyUs: "Procurar",
-            historyEs: "Procurar",
+            historyUs: countriesIBGEApiEN?.historico ?? "",
+            historyEs: countriesIBGEApiES?.historico ?? "",
             languages: languagesValues,
             latitude: countriesRestApi.capitalInfo.latlng[0],
             longitude: countriesRestApi.capitalInfo.latlng[1],
@@ -85,6 +84,7 @@ export class AxiosCountryProvider implements ICountryProvider {
             nameLocal: nativeName.common,
             population: countriesRestApi.population,
             regionPt: countriesIBGEApi?.localizacao['regiao-intermediaria']?.nome ?? countriesIBGEApi?.localizacao['sub-regiao']?.nome ?? "",
+            regionEs: countriesIBGEApiES?.localizacao['regiao-intermediaria']?.nome ?? countriesIBGEApiES?.localizacao['sub-regiao']?.nome ?? "",
             regionUs: countriesRestApi.continents[0],
             lastUpdate: new Date()
         }

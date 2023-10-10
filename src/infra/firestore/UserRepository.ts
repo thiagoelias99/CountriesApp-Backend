@@ -1,4 +1,4 @@
-import { Firestore, collection, doc, getDoc } from "firebase/firestore";
+import { Firestore, doc, getDoc } from "firebase/firestore";
 import { IUser } from "../../Entities/User";
 import { IUserRepository } from "../../database/repository/UserRepository";
 
@@ -23,19 +23,22 @@ export class UserRepository implements IUserRepository {
             const user = docSnap.data() as IUser
             // const userCountries
             return new Promise((resolve, reject) => {
-                // resolve({
-                //     id: docSnap.id,
-                //     email: user.email,
-                //     name: user.name,
-                //     countries: user.countries?.map(country => {
-                //         return {
-                //             cca2: country.cca2,
-                //             name: country.namePt,
-                //             completeName: country.nameCompletePt
-                //         }
-                //     }) || [],
-                //     notes: user.notes || []                                        
-                // })
+                resolve({
+                    id: docSnap.id,
+                    email: user.email,
+                    name: user.name,
+                    countries: user.countries?.map(country => {
+                        return {
+                            cca2: country.cca2,
+                            namePt: country.namePt,
+                            nameUs: country.nameUs,
+                            nameES: country.nameES,
+                            flagPng: country.flagPng,
+                            flagSvg: country.flagSvg                            
+                        }
+                    }) || [],
+                    notes: user.notes || []                                        
+                })
             })
         } else {
             throw new Error(`User not found with id ${id}.`);

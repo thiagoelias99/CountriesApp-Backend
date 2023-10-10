@@ -31,6 +31,7 @@ export interface ICountry {
     population: number
     regionPt: string
     regionUs: string
+    regionEs: string
     lastUpdate: Date
 }
 

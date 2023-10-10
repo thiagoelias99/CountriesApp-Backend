@@ -1,10 +1,10 @@
-import { ICountry } from "./Country"
+import { ICountry, ICountryList } from "./Country"
 import { INote } from "./Note"
 
 export interface IUser {
     id: string
     name: string
     email: string
-    countries?: ICountry[]
+    countries?: ICountryList[]
     notes?: INote[]
 }
