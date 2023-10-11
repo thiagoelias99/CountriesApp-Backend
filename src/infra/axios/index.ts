@@ -28,7 +28,7 @@ export class AxiosCountryProvider implements ICountryProvider {
                 cca2: country.cca2,
                 namePt: country.translations.por.common,
                 nameUs: country.name.common,
-                nameES: country.translations.spa.common,
+                nameEs: country.translations.spa.common,
                 flagPng: country.flags.png,
                 flagSvg: country.flags.svg
             }

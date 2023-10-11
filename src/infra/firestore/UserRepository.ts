@@ -1,6 +1,6 @@
-import { Firestore, doc, getDoc } from "firebase/firestore";
-import { IUser } from "../../Entities/User";
-import { IUserRepository } from "../../database/repository/UserRepository";
+import { Firestore, doc, getDoc, setDoc } from "firebase/firestore"
+import { IUser } from "../../Entities/User"
+import { IUserRepository } from "../../database/repository/UserRepository"
 
 export class UserRepository implements IUserRepository {
     constructor(
@@ -9,15 +9,22 @@ export class UserRepository implements IUserRepository {
 
     usersCollection = "users"
 
-    save(user: IUser): Promise<IUser> {
-        throw new Error("Method not implemented.");
+    async save(user: IUser): Promise<IUser> {
+        const docRef = doc(this.db, this.usersCollection, user.id)
+        const docSnap = await getDoc(docRef)
+
+        await setDoc(docRef, user)
+        return new Promise((resolve, reject) => {
+            resolve(user)
+        })
     }
+
     getAll(): Promise<IUser[]> {
-        throw new Error("Method not implemented.");
+        throw new Error("Method not implemented.")
     }
     async getById(id: string): Promise<IUser> {
-        const docRef = doc(this.db, this.usersCollection, id);
-        const docSnap = await getDoc(docRef);
+        const docRef = doc(this.db, this.usersCollection, id)
+        const docSnap = await getDoc(docRef)
 
         if (docSnap.exists()) {
             const user = docSnap.data() as IUser
@@ -31,22 +38,22 @@ export class UserRepository implements IUserRepository {
                             cca2: country.cca2,
                             namePt: country.namePt,
                             nameUs: country.nameUs,
-                            nameES: country.nameES,
+                            nameEs: country.nameEs,
                             flagPng: country.flagPng,
-                            flagSvg: country.flagSvg                            
+                            flagSvg: country.flagSvg
                         }
                     }) || [],
-                    notes: user.notes || []                                        
+                    notes: user.notes || []
                 })
             })
         } else {
-            throw new Error(`User not found with id ${id}.`);
+            throw new Error(`User not found with id ${id}.`)
         }
     }
     getByEmail(email: string): Promise<IUser> {
-        throw new Error("Method not implemented.");
+        throw new Error("Method not implemented.")
     }
     remove(id: string): Promise<void> {
-        throw new Error("Method not implemented.");
+        throw new Error("Method not implemented.")
     }
 }

@@ -39,7 +39,7 @@ export interface ICountryList {
     cca2: string
     namePt: string
     nameUs: string
-    nameES: string
+    nameEs: string
     flagPng: string
     flagSvg: string
 }

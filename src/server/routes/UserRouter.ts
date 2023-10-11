@@ -6,8 +6,8 @@ const router = Router()
 
 const path = '/users'
 
-// router.route(path)
-    // .post(UserController.post)
+router.route(path)
+    .post(UserController.save)
     // .get(UserController.get)
 
 router.route(`${path}/:id`)

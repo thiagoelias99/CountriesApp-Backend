@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-import { FirebaseApp, initializeApp } from "firebase/app";
+import { FirebaseApp, initializeApp } from "firebase/app"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -11,7 +12,7 @@ const firebaseConfig = {
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID,
     measurementId: process.env.FIREBASE_MEASUREMENT_ID
-};
+}
 
 export class Firebase {
     private static _instance: Firebase | null = null;
@@ -22,13 +23,28 @@ export class Firebase {
 
     public static getInstance(): Firebase {
         if (!Firebase._instance) {
-            Firebase._instance = new Firebase();
+            Firebase._instance = new Firebase()
             Firebase._app = initializeApp(firebaseConfig)
         }
-        return Firebase._instance;
+        return Firebase._instance
     }
 
     public get app(): FirebaseApp {
-        return Firebase._app!;
-    }   
+        return Firebase._app!
+    }
+
+    public async signUp(email: string, password: string): Promise<string> {
+        try {
+            const auth = getAuth()
+    
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+    
+            return userCredential.user.uid            
+        } catch (error) {
+            throw error
+        }
+    }
 }
+
+
+
