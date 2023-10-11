@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { UserController } from '../controllers/User'
-// import idValidator from '../middlewares/id-validator'
+import idValidator from '../middlewares/id-validator'
 
 const router = Router()
 
@@ -11,7 +11,7 @@ router.route(path)
     // .get(UserController.get)
 
 router.route(`${path}/:id`)
-    // .all(idValidator)
+    .all(idValidator)
     .get(UserController.getById)
     .put(UserController.update)
     // .delete(UserController.remove)
