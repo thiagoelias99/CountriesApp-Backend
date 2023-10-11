@@ -3,26 +3,24 @@ import { StatusCodes } from 'http-status-codes'
 import { z } from 'zod'
 
 import { userServices } from '../../../services'
-import { IUser } from '../../../Entities/User'
+import { IUser, IUserUpdate } from '../../../Entities/User'
 
-async function save(req: Request, res: Response, next: NextFunction) {
+async function update(req: Request<{ id: string }, {}, IUserUpdate>, res: Response, next: NextFunction) {
     try {
-        const user = req.body
-        saveValidation(user)
-        // const createdUser = await userServices.createUser(user)
-        res.status(StatusCodes.CREATED).json(user)
+        const id = req.params.id
+        const data = req.body
+        const validatedData = await saveValidation(data)
+        await userServices.update(id, validatedData)
+        res.status(StatusCodes.OK).json(validatedData)
     } catch (error) {
         next(error)
     }
 }
 
-export default save
+export default update
 
-function saveValidation(user: IUser) {
+async function saveValidation(user: IUserUpdate) {
     const ValidationSchema = z.object({
-        id: z.string().uuid(),
-        name: z.string().min(1),
-        email: z.string().email(),
         countries: z.array(z.object({
             cca2: z.string().length(2),
             namePt: z.string().min(1),

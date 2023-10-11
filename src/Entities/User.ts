@@ -8,3 +8,8 @@ export interface IUser {
     countries?: ICountryList[]
     notes?: INote[]
 }
+
+export interface IUserUpdate {
+    countries?: ICountryList[]
+    notes?: INote[]
+}

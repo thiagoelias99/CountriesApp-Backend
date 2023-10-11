@@ -1,5 +1,5 @@
-import { Firestore, doc, getDoc, setDoc } from "firebase/firestore"
-import { IUser } from "../../Entities/User"
+import { Firestore, doc, getDoc, setDoc, updateDoc } from "firebase/firestore"
+import { IUser, IUserUpdate } from "../../Entities/User"
 import { IUserRepository } from "../../database/repository/UserRepository"
 
 export class UserRepository implements IUserRepository {
@@ -56,4 +56,13 @@ export class UserRepository implements IUserRepository {
     remove(id: string): Promise<void> {
         throw new Error("Method not implemented.")
     }
+
+    async update(id: string, data: IUserUpdate): Promise<IUser> {
+        const docRef = doc(this.db, this.usersCollection, id)
+        
+        await updateDoc(docRef, {...data})
+
+        return this.getById(id)
+    }
+
 }
