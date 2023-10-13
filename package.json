@@ -8,7 +8,8 @@
     "dev": "npx ts-node-dev ./src/app.ts --tls-min-v1.0",
     "build": "tsc",
     "watch": "tsc -w",
-    "production": "node ./build/app.js"
+    "production": "node ./build/app.js",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",
