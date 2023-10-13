@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "CountriesApp-Backend",
-    "dateExported": "2023-10-11T11:40:53.066Z",
+    "dateExported": "2023-10-13T11:29:51.102Z",
     "version": "1.1",
     "folders": [
         {
@@ -12,11 +12,25 @@
             "sortNum": 10000
         },
         {
+            "_id": "393c9890-4efb-41f4-9690-472c06006a11",
+            "name": "Users",
+            "containerId": "2b36816e-e98e-467a-9b7f-71a3dabb06a9",
+            "created": "2023-10-13T11:23:00.721Z",
+            "sortNum": 10000
+        },
+        {
             "_id": "1e512833-4907-446d-bd60-0ef0c5f3074c",
             "name": "Countries",
-            "containerId": "",
+            "containerId": "2b36816e-e98e-467a-9b7f-71a3dabb06a9",
             "created": "2023-10-10T21:37:46.745Z",
             "sortNum": 20000
+        },
+        {
+            "_id": "cd31485d-d961-420a-a8e7-b9fdec1a031e",
+            "name": "Countries",
+            "containerId": "",
+            "created": "2023-10-13T11:23:18.944Z",
+            "sortNum": 25000
         },
         {
             "_id": "5b4615bb-7643-41bd-a241-7973be562ffe",
@@ -24,6 +38,20 @@
             "containerId": "",
             "created": "2023-10-11T10:54:26.508Z",
             "sortNum": 30000
+        },
+        {
+            "_id": "a830acf7-9d7e-49e1-b08b-d0be218bb0c4",
+            "name": "Auth",
+            "containerId": "2b36816e-e98e-467a-9b7f-71a3dabb06a9",
+            "created": "2023-10-13T11:24:17.457Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "2b36816e-e98e-467a-9b7f-71a3dabb06a9",
+            "name": "Render",
+            "containerId": "",
+            "created": "2023-10-13T11:22:54.196Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
@@ -32,11 +60,11 @@
             "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
             "containerId": "81570187-ce20-4c8a-91bd-674d9de66fc6",
             "name": "get-by-id",
-            "url": "http://localhost:3333/users/3912D440-BFB9-47DC-8774-022E952B8BA9",
+            "url": "http://localhost:3333/users/MB01QAkal2ONHLm6BdTWPjN8qaM2",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-10-10T21:37:46.744Z",
-            "modified": "2023-10-11T10:11:55.763Z",
+            "modified": "2023-10-11T18:09:30.130Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -61,15 +89,48 @@
             "tests": []
         },
         {
+            "_id": "c3ea3fb1-9aa7-47ad-8ce4-aba1b6b5efb8",
+            "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
+            "containerId": "393c9890-4efb-41f4-9690-472c06006a11",
+            "name": "get-by-id",
+            "url": "https://countriesapp-backend.onrender.com/users/3VDgCCXxhrhuLwFvZFqymC0ucNH2",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-13T11:23:00.721Z",
+            "modified": "2023-10-13T11:29:38.651Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "17cdac47-37d0-4a47-ad2f-8da219387659",
+            "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
+            "containerId": "a830acf7-9d7e-49e1-b08b-d0be218bb0c4",
+            "name": "sign-up",
+            "url": "https://countriesapp-backend.onrender.com/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-10-13T11:24:17.457Z",
+            "modified": "2023-10-13T11:29:27.387Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago\",\n  \"email\": \"thiago5@email.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "baadcf13-1eff-4833-a081-e3da06059bb5",
             "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
             "containerId": "1e512833-4907-446d-bd60-0ef0c5f3074c",
             "name": "search-by-name",
-            "url": "http://localhost:3333/countries/fran",
+            "url": "https://countriesapp-backend.onrender.com/countries/fran",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-10-10T21:37:46.745Z",
-            "modified": "2023-10-10T23:26:13.249Z",
+            "modified": "2023-10-13T11:23:41.772Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -78,19 +139,52 @@
             "_id": "d0a5263a-bba3-42b3-a48b-8d5cfaeab661",
             "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
             "containerId": "81570187-ce20-4c8a-91bd-674d9de66fc6",
-            "name": "save",
-            "url": "http://localhost:3333/users",
-            "method": "POST",
+            "name": "update",
+            "url": "http://localhost:3333/users/MB01QAkal2ONHLm6BdTWPjN8qaM2",
+            "method": "PUT",
             "sortNum": 20000,
             "created": "2023-10-11T10:15:24.577Z",
-            "modified": "2023-10-11T10:20:16.932Z",
+            "modified": "2023-10-11T18:09:50.971Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\": \"4d97699f-3a17-46a0-bbb8-5e5cc14a8cc9\",\n  \"name\": \"Thiago\",\n  \"email\": \"thiago@email.com\"\n}",
+                "raw": "{\n  \"id\": \"4d97699f-3a17-46a0-bbb8-5e5cc14a8cc9\",\n  \"name\": \"Thiago\",\n  \"email\": \"thiago@email.com\",\n  \"countries\": [\n    {\n      \"cca2\": \"BR\",\n      \"namePt\": \"Brasil\",\n      \"nameUs\": \"Brazil\",\n      \"nameEs\": \"Brasil\",\n      \"flagPng\": \"...png\",\n      \"flagSvg\": \"...svg\"\n    }\n  ]\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "5266fd69-fa23-485e-89ed-7249d2e7b796",
+            "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
+            "containerId": "393c9890-4efb-41f4-9690-472c06006a11",
+            "name": "update",
+            "url": "https://countriesapp-backend.onrender.com/users/MB01QAkal2ONHLm6BdTWPjN8qaM2",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-10-13T11:23:00.722Z",
+            "modified": "2023-10-13T11:28:50.769Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"4d97699f-3a17-46a0-bbb8-5e5cc14a8cc9\",\n  \"name\": \"Thiago\",\n  \"email\": \"thiago@email.com\",\n  \"countries\": [\n    {\n      \"cca2\": \"BR\",\n      \"namePt\": \"Brasil\",\n      \"nameUs\": \"Brazil\",\n      \"nameEs\": \"Brasil\",\n      \"flagPng\": \"...png\",\n      \"flagSvg\": \"...svg\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "68f1bac0-1569-4139-8bcb-cf2c5aa7c91f",
+            "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
+            "containerId": "cd31485d-d961-420a-a8e7-b9fdec1a031e",
+            "name": "search-by-name",
+            "url": "http://localhost:3333/countries/fran",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-13T11:23:18.944Z",
+            "modified": "2023-10-13T11:23:18.944Z",
+            "headers": [],
+            "params": [],
             "tests": []
         },
         {
@@ -98,11 +192,25 @@
             "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
             "containerId": "1e512833-4907-446d-bd60-0ef0c5f3074c",
             "name": "get-by-cca2",
-            "url": "http://localhost:3333/countries/cca2/tm",
+            "url": "https://countriesapp-backend.onrender.com/countries/cca2/br",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-10-10T21:37:46.746Z",
-            "modified": "2023-10-10T23:43:48.508Z",
+            "modified": "2023-10-13T11:24:01.051Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f6213928-1239-40f2-a983-898abcf23180",
+            "colId": "bd05eebf-ba1d-42bd-8944-86d3f7cf8962",
+            "containerId": "cd31485d-d961-420a-a8e7-b9fdec1a031e",
+            "name": "get-by-cca2",
+            "url": "http://localhost:3333/countries/cca2/br",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-13T11:23:18.945Z",
+            "modified": "2023-10-13T11:23:18.944Z",
             "headers": [],
             "params": [],
             "tests": []
