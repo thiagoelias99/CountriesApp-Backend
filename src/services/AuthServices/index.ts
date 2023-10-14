@@ -10,15 +10,17 @@ export class AuthServices {
     ) { }
 
     async signUp(data: ISignUp): Promise<string> {
+        //Cadastrar usuário no firebase e receber o id
         const createdUserId = await this.firebase.signUp(data.email, data.password)
+
+        //Cadastrar usuário no banco de dados
         const user: IUser = {
             id: createdUserId,
             email: data.email,
             name: data.name,
             countries: [],
             notes: []
-        }
-
+        }        
         const responseUser = await this.database.users.save(user)
 
         return responseUser.id

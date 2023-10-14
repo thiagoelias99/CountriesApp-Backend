@@ -8,14 +8,11 @@ import crypto from 'crypto'
 import https from 'https'
 import { CCANotFoundError } from '../../errors'
 
-
-
 const allowLegacyRenegotiationforNodeJsOptions = {
     httpsAgent: new https.Agent({
         secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
     }),
 }
-
 
 export class AxiosCountryProvider implements ICountryProvider {
     async searchByName(name: string): Promise<ICountryList[]> {
