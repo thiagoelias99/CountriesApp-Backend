@@ -13,4 +13,8 @@ export class CountryServices {
     getByCCA2(cca2: string): Promise<ICountry> {
         return this.countryProvider.getByCCA2(cca2)
     }
+
+    getAll(): Promise<ICountryList[]> {
+        return this.countryProvider.getAll()
+    }
 }

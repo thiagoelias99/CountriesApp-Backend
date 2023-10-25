@@ -5,6 +5,9 @@ const router = Router()
 
 const path = '/countries'
 
+router.route(path)
+    .get(CountriesController.getAll)
+
 router.route(`${path}/:name`)
     .get(CountriesController.searchByName)
 
